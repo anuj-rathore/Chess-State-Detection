@@ -2,7 +2,7 @@ close all;
 clear;
 clc;
 
-I = imread('top.jpg');
+I = imread('chessboard.png');
 I  = rgb2gray(I);
 
 figure, 
