@@ -2,19 +2,17 @@ close all;
 clear;
 clc;
 
-I = imread('test3.png');
+I = imread('test1.png');
 I  = rgb2gray(I);
-figure
-% subplot(1,2,1)
+figure, 
 imshow(I);
 hold on
 
+I = histeq(I);
 I = imsharpen(I,'Amount',0.5);
 level = graythresh(I);
-BW = edge(I,'canny',level);
 
-% subplot(1,2,2)
-% imshow(BW);
+BW = edge(I,'canny',level);
 
 [H,T,R] = hough(BW);
 P  = houghpeaks(H,10000);
